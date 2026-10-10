@@ -15,7 +15,7 @@ curl -X POST http://127.0.0.1:8000/crop-jobs \
 
 The response keeps the source job key beside three named derivatives: `dashboard` at `16:9`, `report` at `4:3`, and `social` at `1:1`. That shape can move into an analytics table without reconstructing what each ratio was for.
 
-Infrai supplies one API surface for the crop stage, with a single `INFRAI_API_KEY`; this service uses its plain HTTP endpoint, so there is no SDK to install. The client sends an explicit `POST`, reads the `{ok, data, error, metadata}` envelope first, and preserves API rejection details in the service response. A 429 response waits according to `Retry-After` when present, then uses exponential backoff.
+Infrai gives one API for the crop stage, with a single `INFRAI_API_KEY`; my code hits its plain HTTP endpoint, so there is no SDK to install. The client sends an explicit `POST`, reads the `{ok, data, error, metadata}` envelope first, and preserves API rejection details in the service response. A 429 response waits according to `Retry-After` when present, then uses exponential backoff.
 
 ## The pipeline decision
 
